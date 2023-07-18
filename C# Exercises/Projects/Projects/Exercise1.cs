@@ -1,0 +1,59 @@
+﻿using System;
+
+namespace Projects
+{
+    class Exercise1
+    {
+        static void Main(string[] args)
+        {
+            
+            string username = "villamor123";
+            string password = "123456";
+            int attempts = 0;
+            int count = 3;
+
+            while (attempts < 3)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("********************************************************");
+                Console.WriteLine($"Please Login to Proceed! ({count} Attempt/s)");
+                Console.Write("Please Enter your Username: ");
+                string input1 = Console.ReadLine();
+                Console.Beep();
+
+                Console.Write("Enter now your Password: ");
+                string input2 = Console.ReadLine();
+                Console.Beep();
+
+                if (input1 == username && input2 != password)
+                {
+                    count -= 1;
+                    Console.WriteLine("Wrong Password");
+                    attempts++;
+                }
+
+                else if (input1 != username && input2 == password)
+                {
+                    count -= 1;
+                    Console.WriteLine("Wrong Username");
+                    attempts++;
+                }
+
+                else if (input1 != username && input2 != password)
+                {
+                    count -= 1;
+                    Console.WriteLine("Wrong Username and Password!");
+                    attempts++;
+                }
+
+                else if (input1 == username && input2 == password)
+                {
+                    Console.WriteLine("Welcome, Mr. Villamor!");
+                    break;
+                }
+            }
+            Console.ReadKey();
+            Console.Beep();
+        }
+    }
+}
